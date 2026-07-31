@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      target: dev
+    container_name: starsoft-nft-marketplace
+    ports:
+      - '3000:3000'
+    environment:
+      - NEXT_PUBLIC_API_URL=https://api-challenge.starsoft.games/api/v1
+      - WATCHPACK_POLLING=true
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
