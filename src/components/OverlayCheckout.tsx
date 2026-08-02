@@ -28,6 +28,7 @@ import {
   removeItem,
 } from '@/store/slices/cartSlice';
 import { useState } from 'react';
+import axios from 'axios';
 
 export function OverlayCheckout() {
   const dispatch = useAppDispatch();
@@ -38,16 +39,18 @@ export function OverlayCheckout() {
   const [handleCheckoutClicked, setHandleCheckoutClicked] = useState(false);
 
   const handleCheckout = async () => {
-    await fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items }),
-    });
+    try {
+      const response = await axios.post('/api/checkout', { items });
 
-    setHandleCheckoutClicked(true);
-    dispatch(clearCart());
-    dispatch(clearAddedToCart());
-    // dispatch(closeCart());
+      setHandleCheckoutClicked(true);
+      dispatch(clearCart());
+      dispatch(clearAddedToCart());
+      // dispatch(closeCart());
+      return response.data;
+    } catch (error) {
+      console.error('Checkout error:', error);
+      throw error;
+    }
   };
 
   return (

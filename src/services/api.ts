@@ -29,13 +29,13 @@ export async function fetchProducts({
     orderBy,
   });
 
-  const response = await fetch(`${API_URL}/products?${query}`);
+  try {
+    const response = await fetch(`${API_URL}/products?${query}`);
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch products (${response.status})`);
+    return response.json();
+  } catch (error) {
+    throw new Error(`Failed to fetch products (${error})`);
   }
-
-  return response.json();
 }
 
 /** The API has no detail endpoint, so the item is resolved from the list. */

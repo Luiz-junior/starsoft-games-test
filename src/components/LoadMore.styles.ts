@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 export const Track = styled.div`
   height: 12px;
   border-radius: 999px;
-  background: ${({ theme }) => theme.colors.border};
   overflow: hidden;
 `;
 

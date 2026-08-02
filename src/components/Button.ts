@@ -32,7 +32,6 @@ export const Button = styled(motion.button)<{ $variant?: Variant; $full?: boolea
       : css`
           background: transparent;
           color: ${theme.colors.text};
-          border: 1px solid ${theme.colors.border};
 
           &:hover {
             border-color: ${theme.colors.primary};

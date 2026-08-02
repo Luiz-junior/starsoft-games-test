@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from './Button';
 import { EthPrice } from './EthPrice';
 import { Body, Card, Description, Thumb, Title } from './NftCard.styles';
@@ -42,24 +41,20 @@ export function NftCard({ product, priority = false }: NftCardProps) {
       transition={{ duration: 0.35, ease: 'easeOut' }}
       whileHover={{ y: -6 }}
     >
-      <Link href={`/nft/${product.id}`} aria-label={`Ver detalhes de ${product.name}`}>
-        <Thumb>
-          {product.image && (
-            <Image
-              src={product.image}
-              alt={product.name}
-              priority={priority}
-              sizes="(max-width: 768px) 50vw, 300px"
-              width={289}
-              height={258}
-            />
-          )}
-        </Thumb>
-      </Link>
+      <Thumb>
+        {product.image && (
+          <Image
+            src={product.image}
+            alt={product.name}
+            priority={priority}
+            sizes="(max-width: 768px) 50vw, 300px"
+            width={289}
+            height={258}
+          />
+        )}
+      </Thumb>
       <Body>
-        <Link href={`/nft/${product.id}`}>
-          <Title>{product.name}</Title>
-        </Link>
+        <Title>{product.name}</Title>
         <Description>{product.description}</Description>
         <EthPrice value={price} />
         <Button

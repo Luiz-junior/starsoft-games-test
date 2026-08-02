@@ -5,7 +5,7 @@ export const Bar = styled.footer`
   height: 76px;
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.colors.textMuted};
+  color: ${({ theme }) => theme.colors.subtitle};
   font-size: 14px;
 
   margin-top: 120px;

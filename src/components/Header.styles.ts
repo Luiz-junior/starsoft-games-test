@@ -7,7 +7,6 @@ export const Bar = styled.header`
   top: 0;
   z-index: 20;
   background: ${({ theme }) => theme.colors.background};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 export const Inner = styled(Container)`

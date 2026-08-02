@@ -54,7 +54,6 @@ npm run format   # Prettier
 
 - **Listagem dinâmica de NFTs** consumindo a API do desafio diretamente pelo React Query.
 - **Paginação "Carregar mais"** com `useInfiniteQuery` (8 itens por página) e barra de progresso laranja indicando itens carregados vs. total.
-- **Página de detalhe** `/nft/[id]` com `useQuery`, incluindo estados de loading, erro e "não encontrado".
 - **Carrinho de compras** completo: adicionar, remover, incrementar/decrementar quantidade, total em ETH e persistência em `localStorage`.
 - **Overlay "Mochila de Compras"** em tela cheia, com botão de voltar circular, botão de deletar laranja e finalização de compra.
 - **Rota de API** `/api/checkout` (finalização mockada).
@@ -72,7 +71,7 @@ Estilos de páginas ficam em `src/styles/` para não interferir no roteamento po
 
 ```text
 src/
-  components/   UI + arquivos *.styles.ts (Header, NftCard, NftGrid, CartDrawer, LoadMore, Footer, EthPrice...)
+  components/   UI + arquivos *.styles.ts (Header, NftCard, NftGrid, OverlayCheckout, LoadMore, Footer, EthPrice...)
   hooks/        useProducts (React Query) e useCartPersistence
   pages/        Rotas do Next.js + /api/checkout
   services/     Cliente HTTP da API do desafio
@@ -89,5 +88,5 @@ src/
 npm test
 ```
 
-Testes cobrindo o reducer do carrinho, os helpers de formatação/parse de preço, o `NftCard` (renderização + integração com o Redux) e o `CartDrawer` (listagem, stepper e remoção).
+Testes cobrindo o reducer do carrinho, os helpers de formatação/parse de preço, o `NftCard` (renderização + integração com o Redux) e o `OverlayCheckout` (listagem, stepper e remoção).
 
