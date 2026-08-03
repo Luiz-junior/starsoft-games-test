@@ -3,10 +3,11 @@ import { Container } from '@/components/Container';
 
 export const Wrapper = styled(Container)`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 48px;
   padding-top: 40px;
   padding-bottom: 80px;
+  max-width: 1200px;
 
   > * {
     flex: 1 1 calc((100% - 48px) / 2);
@@ -24,17 +25,22 @@ export const Wrapper = styled(Container)`
   }
 `;
 
+export const FigureContainer = styled.div`
+  border-radius: ${({ theme }) => theme.radii.md};
+  background: ${({ theme }) => theme.colors.surface};
+  max-width: 500px;
+  padding: 31px;
+`;
+
 export const Figure = styled.div`
   position: relative;
   aspect-ratio: 1 / 1;
   border-radius: ${({ theme }) => theme.radii.md};
-  background: ${({ theme }) => theme.colors.surface};
   overflow: hidden;
+  width: 100%;
 
   img {
-    object-fit: contain;
-    padding: 24px;
-    border-radius: ${({ theme }) => theme.radii.md};
+    object-fit: cover;
   }
 `;
 
@@ -54,7 +60,7 @@ export const Info = styled.div`
 `;
 
 export const Back = styled.div`
-  padding-top: 24px;
+  padding: 24px 0 0 24px;
 
   a {
     color: ${({ theme }) => theme.colors.subtitle};

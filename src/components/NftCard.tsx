@@ -6,6 +6,7 @@ import type { Product } from '@/types';
 import { parsePrice } from '@/utils/format';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { addItem, selectAddedToCartIds } from '@/store/slices/cartSlice';
+import Link from 'next/link';
 
 interface NftCardProps {
   product: Product;
@@ -41,20 +42,24 @@ export function NftCard({ product, priority = false }: NftCardProps) {
       transition={{ duration: 0.35, ease: 'easeOut' }}
       whileHover={{ y: -6 }}
     >
-      <Thumb>
-        {product.image && (
-          <Image
-            src={product.image}
-            alt={product.name}
-            priority={priority}
-            sizes="(max-width: 768px) 50vw, 300px"
-            width={289}
-            height={258}
-          />
-        )}
-      </Thumb>
+      <Link href={`/nft/${product.id}`} aria-label={`Ver detalhes de ${product.name}`}>
+        <Thumb>
+          {product.image && (
+            <Image
+              src={product.image}
+              alt={product.name}
+              priority={priority}
+              sizes="(max-width: 768px) 50vw, 300px"
+              width={289}
+              height={258}
+            />
+          )}
+        </Thumb>
+      </Link>
       <Body>
-        <Title>{product.name}</Title>
+        <Link href={`/nft/${product.id}`}>
+          <Title>{product.name}</Title>
+        </Link>
         <Description>{product.description}</Description>
         <EthPrice value={price} />
         <Button
