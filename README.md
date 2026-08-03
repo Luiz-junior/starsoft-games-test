@@ -90,3 +90,6 @@ npm test
 
 Testes cobrindo o reducer do carrinho, os helpers de formatação/parse de preço, o `NftCard` (renderização + integração com o Redux) e o `OverlayCheckout` (listagem, stepper e remoção).
 
+## Agradecimento
+
+Agradeço pela oportunidade de participar deste processo e espero muito entrar para o time.

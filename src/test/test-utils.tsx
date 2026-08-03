@@ -10,7 +10,10 @@ interface Options extends Omit<RenderOptions, 'wrapper'> {
   store?: AppStore;
 }
 
-export function renderWithProviders(ui: ReactElement, { store = makeStore(), ...options }: Options = {}) {
+export function renderWithProviders(
+  ui: ReactElement,
+  { store = makeStore(), ...options }: Options = {},
+) {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
 
   function Wrapper({ children }: { children: ReactNode }) {

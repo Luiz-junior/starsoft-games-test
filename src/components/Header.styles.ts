@@ -15,6 +15,7 @@ export const Inner = styled(Container)`
   justify-content: space-between;
   gap: 16px;
   height: 100px;
+  padding: 0 41px;
 `;
 
 export const LogoLink = styled(Link)`
